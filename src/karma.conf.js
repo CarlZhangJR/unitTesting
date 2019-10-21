@@ -1,37 +1,90 @@
-// Karma configuration file, see link for more information
-// https://karma-runner.github.io/1.0/config/configuration-file.html
+'use strict';
 
-module.exports = function (config) {
-  config.set({
-    basePath: '',
-    frameworks: ['jasmine', '@angular-devkit/build-angular'],
-    plugins: [
-      require('karma-jasmine'),
-      require('karma-chrome-launcher'),
-      require('karma-jasmine-html-reporter'),
-      require('karma-coverage-istanbul-reporter'),
-      require('@angular-devkit/build-angular/plugins/karma'),
-      require('karma-sonarqube-unit-reporter')
-    ],
-    client: {
-      clearContext: false // leave Jasmine Spec Runner output visible in browser
+var path = require('path');
+var conf = require('./gulp/conf');
+
+var _ = require('lodash');
+var wiredep = require('wiredep');
+
+var pathSrcHtml = [
+  path.join(conf.paths.src, '/**/*.html'),
+  path.join(conf.paths.src_test, '/**/*.html')
+];
+
+function listFiles() {
+  var wiredepOptions = _.extend({}, conf.wiredep, {
+    dependencies: true,
+    devDependencies: true
+  });
+
+  return wiredep(wiredepOptions).js
+    .concat([
+      path.join(conf.paths.src, '/app/**/*.module.js'),
+      path.join(conf.paths.src, '/app/**/*.js'),
+      path.join(conf.paths.src, '/**/*.spec.js'),
+      path.join(conf.paths.src, '/**/*.mock.js'),
+      path.join(conf.paths.src_test, '/app/**/*.module.js'),
+      path.join(conf.paths.src_test, '/app/**/*.js'),
+      path.join(conf.paths.src_test, '/**/*.spec.js'),
+      path.join(conf.paths.src_test, '/**/*.mock.js')
+    ])
+    .concat(pathSrcHtml);
+}
+
+module.exports = function(config) {
+
+  var configuration = {
+    files: listFiles(),
+
+    singleRun: true,
+	
+    colors:    false,
+
+    autoWatch: false,
+
+    ngHtml2JsPreprocessor: {
+      stripPrefix: conf.paths.src + '/',
+      moduleName: 'TODO_PUT_HERE_YOUR_MODULE_NAME'
     },
-    coverageIstanbulReporter: {
-      dir: require('path').join(__dirname, '../coverage'),
-      reports: ['html', 'lcovonly', 'text-summary'],
-      fixWebpackSourcePaths: true
+
+    logLevel: 'WARN',
+
+    frameworks: ['jasmine', 'angular-filesort'],
+
+    angularFilesort: {
+      whitelist: [path.join(conf.paths.src, '/**/!(*.html|*.spec|*.mock).js'), path.join(conf.paths.src_test, '/**/!(*.html|*.spec|*.mock).js')]
     },
-    sonarQubeUnitReporter:{
-      sonarQubeVersion:'LATEST',
+
+    browsers: ['chrome'],
+
+    sonarQubeUnitReporter: {
+      sonarQubeVersion: 'LATEST',
       outputFile: 'reports/ut_report.xml',
       useBrowserName: false
     },
-    reporters: ['progress', 'kjhtml'],
-    port: 9876,
-    colors: true,
-    logLevel: config.LOG_INFO,
-    autoWatch: true,
-    browsers: ['Chrome'],
-    singleRun: false
-  });
+
+    plugins: [
+      'karma-phantomjs-launcher',
+      'karma-angular-filesort',
+      'karma-coverage',
+      'karma-jasmine',
+      'karma-ng-html2js-preprocessor',
+      'karma-sonarqube-unit-reporter'
+    ],
+
+    coverageReporter: {
+      type : 'lcov',
+      dir : 'reports',
+      subdir : 'coverage'
+    },
+
+    reporters: ['progress', 'sonarqubeUnit', 'coverage'],
+    
+    preprocessors: {
+      'src/**/*.js':   ['coverage'],
+      'test/**/*.js':   ['coverage']
+    }
+  };
+
+  config.set(configuration);
 };
