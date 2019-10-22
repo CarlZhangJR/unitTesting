@@ -26,7 +26,7 @@ module.exports = function (config) {
       outputFile: 'reports/ut_report.xml',
       useBrowserName: false
     },
-    reporters: ['progress', 'kjhtml'],
+    reporters: ['progress','sonarqubeUnit', 'kjhtml'],
     port: 9876,
     colors: true,
     logLevel: config.LOG_INFO,
