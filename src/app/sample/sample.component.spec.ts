@@ -35,6 +35,6 @@ describe('SampleComponent', () => {
     expect(document.getElementById('binding').innerHTML).toMatch('this is a sample of binding test');
   });
   it('should not pass the test,',() =>{
-    expect(document.getElementById('btn').innerHTML).toMatch('nottested');
+    expect(document.getElementById('btn').innerHTML).toMatch('untested');
   });
 });

@@ -1,17 +1,10 @@
 <testExecutions version="1">
   <file path="SampleComponent">
-    <testCase name="SampleComponent should create" duration="60"/>
-    <testCase name="SampleComponent should create a h1 tag with innerHTML property as &quot;title&quot;" duration="41"/>
-    <testCase name="SampleComponent should create a p tag with content" duration="16"/>
-    <testCase name="SampleComponent should add two paramenters" duration="18"/>
-    <testCase name="SampleComponent should test the binding property for the 3rd line text" duration="23"/>
-    <testCase name="SampleComponent should not pass the test," duration="153">
-      <failure message="Error">Expected 'untested' to match 'nottested'.
-    at UserContext.&lt;anonymous&gt; (http://localhost:9876/src/app/sample/sample.component.spec.ts?:38:54)
-    at ZoneDelegate../node_modules/zone.js/dist/zone.js.ZoneDelegate.invoke (http://localhost:9876/node_modules/zone.js/dist/zone.js?:391:1)
-    at ProxyZoneSpec.push../node_modules/zone.js/dist/zone-testing.js.ProxyZoneSpec.onInvoke (http://localhost:9876/node_modules/zone.js/dist/zone-testing.js?:289:1)
-    at ZoneDelegate../node_modules/zone.js/dist/zone.js.ZoneDelegate.invoke (http://localhost:9876/node_modules/zone.js/dist/zone.js?:390:1)
-</failure>
-    </testCase>
+    <testCase name="SampleComponent should create" duration="96"/>
+    <testCase name="SampleComponent should create a h1 tag with innerHTML property as &quot;title&quot;" duration="40"/>
+    <testCase name="SampleComponent should create a p tag with content" duration="22"/>
+    <testCase name="SampleComponent should add two paramenters" duration="17"/>
+    <testCase name="SampleComponent should test the binding property for the 3rd line text" duration="20"/>
+    <testCase name="SampleComponent should not pass the test," duration="27"/>
   </file>
 </testExecutions>
