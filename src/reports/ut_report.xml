@@ -1,1 +1,10 @@
-<testExecutions version="1"/>
+<testExecutions version="1">
+  <file path="SampleComponent">
+    <testCase name="SampleComponent should create" duration="87"/>
+    <testCase name="SampleComponent should create a h1 tag with innerHTML property as &quot;title&quot;" duration="47"/>
+    <testCase name="SampleComponent should create a p tag with content" duration="27"/>
+    <testCase name="SampleComponent should add two paramenters" duration="20"/>
+    <testCase name="SampleComponent should test the binding property for the 3rd line text" duration="15"/>
+    <testCase name="SampleComponent should not pass the test," duration="19"/>
+  </file>
+</testExecutions>
