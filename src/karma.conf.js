@@ -35,3 +35,29 @@ module.exports = function (config) {
     singleRun: false
   });
 };
+
+// karma.conf.js
+// module.exports = function(config) {
+//   config.set({
+//     files: [
+//       'src/**/*.js',
+//       'test/**/*.js'
+//     ],
+//     reporters: ['progress', 'coverage'],
+//     preprocessors: {
+//       'src/**/*.js': ['coverage']
+//     },
+//     coverageReporter: {
+//       // specify a common output directory
+//       dir: 'build/reports/coverage',
+//       reporters: [
+//         // reporters not supporting the `file` property
+//         { type: 'html', subdir: 'report-html' },
+//         { type: 'lcov', subdir: 'report-lcov' },
+//         // reporters supporting the `file` property, use `subdir` to directly
+//         // output them in the `dir` directory
+//         { type: 'lcovonly', subdir: '.', file: 'report-lcovonly.txt' },
+//       ]
+//     }
+//   });
+// };
