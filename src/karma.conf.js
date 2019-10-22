@@ -18,12 +18,8 @@ module.exports = function (config) {
     },
     coverageIstanbulReporter: {
       dir: require('path').join(__dirname, '../coverage'),
-      reports: ['html', 'lcov', 'text'],
+      reports: ['html', 'lcov', 'text','clover'],
       fixWebpackSourcePaths: true,
-      reporters: [
-        { type: 'html', outputFile: 'report-html' }, 
-        { type: 'lcov', outputFile: 'report-lcov' },
-        { type: 'text', outputFile: 'report-text' }],
     },
     // sonarQubeUnitReporter:{
     //   sonarQubeVersion:'LATEST',
