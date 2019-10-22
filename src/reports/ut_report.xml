@@ -1,10 +1,10 @@
 <testExecutions version="1">
   <file path="SampleComponent">
-    <testCase name="SampleComponent should create" duration="96"/>
+    <testCase name="SampleComponent should create" duration="76"/>
     <testCase name="SampleComponent should create a h1 tag with innerHTML property as &quot;title&quot;" duration="40"/>
-    <testCase name="SampleComponent should create a p tag with content" duration="22"/>
-    <testCase name="SampleComponent should add two paramenters" duration="17"/>
-    <testCase name="SampleComponent should test the binding property for the 3rd line text" duration="20"/>
-    <testCase name="SampleComponent should not pass the test," duration="27"/>
+    <testCase name="SampleComponent should create a p tag with content" duration="26"/>
+    <testCase name="SampleComponent should add two paramenters" duration="22"/>
+    <testCase name="SampleComponent should test the binding property for the 3rd line text" duration="17"/>
+    <testCase name="SampleComponent should not pass the test," duration="25"/>
   </file>
 </testExecutions>
